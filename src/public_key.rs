@@ -3,10 +3,11 @@ use slog::{debug, warn};
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use crate::{dns, parser, DKIMError, DkimPublicKey, DNS_NAMESPACE};
+use crate::{dkim_verify::DkimPublicKey, dns, parser, DKIMError};
 
 const RSA_KEY_TYPE: &str = "rsa";
 const ED25519_KEY_TYPE: &str = "ed25519";
+const DNS_NAMESPACE: &str = "_domainkey";
 
 // https://datatracker.ietf.org/doc/html/rfc6376#section-6.1.2
 pub(crate) async fn retrieve_public_key(

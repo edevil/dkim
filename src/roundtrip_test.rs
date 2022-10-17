@@ -1,7 +1,9 @@
 #[cfg(test)]
 mod tests {
+    use crate::dkim_sign::SignerBuilder;
     use crate::{
-        dns, verify_email_with_resolver, DKIMError, DKIMResult, DkimPrivateKey, SignerBuilder,
+        dkim_verify::verify_email_with_resolver, dkim_verify::DkimPrivateKey, dns, DKIMError,
+        DKIMResult,
     };
     use chrono::TimeZone;
     use futures::future::BoxFuture;

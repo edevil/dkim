@@ -1,7 +1,8 @@
 use ed25519_dalek::ExpandedSecretKey;
 
-use crate::header::DKIMHeaderBuilder;
-use crate::{canonicalization, hash, DKIMError, DkimPrivateKey, HEADER};
+use crate::dkim_verify::DkimPrivateKey;
+use crate::header::{DKIMHeaderBuilder, HEADER};
+use crate::{canonicalization, hash, DKIMError};
 
 /// Builder for the Signer
 pub struct SignerBuilder<'a> {
